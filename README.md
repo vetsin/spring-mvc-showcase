@@ -44,7 +44,7 @@ Access the deployed web application at: http://localhost:8080/spring-mvc-showcas
 
 Other info:
 -------------------
-Framework version illustrated: Spring MVC 4.0.0.BUILD-SNAPSHOT and Spring Security 3.2.0.RC1
+Framework version illustrated: Spring MVC 4.0.0.BUILD-SNAPSHOT and Spring Security 3.2.0.CI-SNAPSHOT
 
 The slide presentation is located in this directory and named MasteringSpringMVC3.pdf.
 

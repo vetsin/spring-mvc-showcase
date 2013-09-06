@@ -25,6 +25,7 @@
 		<li><a href="#redirect">Redirecting</a></li>
         <li><a href="#async">Async Requests</a></li>
         <li><a href="#csrf">CSRF</a></li>
+        <li><a href="#auth">Authentication</a></li>
     </ul>
     <div id="simple">
 		<h2>Simple</h2>
@@ -462,6 +463,23 @@
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				<input id="postCsrfPageSubmit" type="submit" value="CSRF Post with Token" />
 			</form>
+		</li>
+		</ul>
+	</div>
+	<div id="auth">
+		<h2>Authentication Requirements</h2>
+		<ul>
+		<li>
+			<a id="getAnon" class="textLink"
+				href="<c:url value="/auth/anonymous" />">GET /auth/anonymous</a>
+		</li>
+		<li>
+			<a id="getUser" class="textLink"
+				href="<c:url value="/auth/useronly" />">GET /auth/useronly</a>
+		</li>
+		<li>
+			<a id="getUser2" class="textLink"
+				href="<c:url value="/auth/useronly." />">GET /auth/useronly. for bypass</a>
 		</li>
 		</ul>
 	</div>

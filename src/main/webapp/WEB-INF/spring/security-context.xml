@@ -5,9 +5,24 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http auto-config="true">
+		<!-- Merely adding <headers /> will achieve the same effect -->
+		<headers>
+	        <!-- Add Cache-Control and Pragma headers -->
+	        <cache-control/>
+	        <!-- Add X-Content-Type-Options with value of nosniff -->
+	        <content-type-options/>
+	        <!-- Adds HTTP Strict Transport Security (HSTS) for secure requests -->
+	        <hsts/>
+	        <!-- Add X-Frame-Options with a value of DENY -->
+	        <frame-options/>
+	        <!-- Adds X-XSS-Protection with value of 1; mode=block-->
+	        <xss-protection/>
+	    </headers>
+	    
 		<!-- Enable form based CSRF Protection for only /csrf-->
-		<csrf request-matcher-ref="csrfLimiter"/>
-		<!-- <intercept-url pattern="/welcome*" access="ROLE_USER" /> -->
+		<csrf request-matcher-ref="csrfLimiter" />
+		
+		<intercept-url pattern="/auth/useronly" access="ROLE_USER"/>
 	</http>
 
 	<authentication-manager>
@@ -18,8 +33,8 @@
 		</authentication-provider>
 	</authentication-manager>
 	
-	<beans:bean id="csrfLimiter" class="org.springframework.security.web.util.AntPathRequestMatcher">
-		<beans:constructor-arg value="/csrf*/**"/>
+	<beans:bean id="csrfLimiter" class="org.springframework.samples.mvc.csrf.CsrfPathRequestMatcher">
+		<beans:constructor-arg value="^/csrf.*"/>
 	</beans:bean>
 
 </beans:beans>
