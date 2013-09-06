@@ -24,6 +24,7 @@
 		<li><a href="#exceptions">Exception Handling</a></li>
 		<li><a href="#redirect">Redirecting</a></li>
         <li><a href="#async">Async Requests</a></li>
+        <li><a href="#csrf">CSRF</a></li>
     </ul>
     <div id="simple">
 		<h2>Simple</h2>
@@ -438,6 +439,32 @@
 		</li>
 		</ul>
 	</div>
+	<div id="csrf">
+		<h2>CSRF Protection</h2>
+		<p>
+			<em>Note: You may need a HTTP Proxy to fully appriciate this.</em>
+		</p>
+		<p>
+		  See the <a href="http://blog.springsource.org/2013/08/21/spring-security-3-2-0-rc1-highlights-csrf-protection/">SPRING SECURITY 3.2.0.RC1 HIGHLIGHTS: CSRF PROTECTION</a> for details.
+		</p>
+		<ul>
+		<li>
+			<a id="getCsrfPage" class="textLink"
+				href="<c:url value="/csrf/list" />">GET /csrf/list</a>
+		</li>
+		<li>
+			<form id="postCsrfPage" class="csrfForm" action="<c:url value="/csrf/save" />" method="post">
+				<input id="postCsrfPageSubmit" type="submit" value="CSRF Post without Token" />
+			</form>
+		</li>
+		<li>
+			<form id="postCsrfPage" class="csrfForm" action="<c:url value="/csrf/save" />" method="post">
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				<input id="postCsrfPageSubmit" type="submit" value="CSRF Post with Token" />
+			</form>
+		</li>
+		</ul>
+	</div>
 </div>
 <script type="text/javascript" src="<c:url value="/resources/jquery/1.6/jquery.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/jqueryform/2.8/jquery.form.js" />"></script>
@@ -624,6 +651,13 @@ $(document).ready(function() {
 	$("#byHeader").click(function(){
 		var link = $(this);
 		$.ajax({ url: this.href, dataType: "text", beforeSend: function(req) { req.setRequestHeader("FooHeader", "foo"); }, success: function(form) { MvcUtil.showSuccessResponse(form, link); }, error: function(xhr) { MvcUtil.showErrorResponse(xhr.responseText, link); }});
+		return false;
+	});
+	
+	$("form.csrfForm").submit(function(event) {
+		var form = $(this);
+		var button = form.children(":first");
+		form.ajaxSubmit({type: "POST", url: form.attr("action"), success: function(text) { MvcUtil.showSuccessResponse(text, button); }, error: function(xhr) { MvcUtil.showErrorResponse(xhr.responseText, button); }});
 		return false;
 	});
 

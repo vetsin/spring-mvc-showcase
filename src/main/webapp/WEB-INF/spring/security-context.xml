@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<http auto-config="true">
+		<!-- Enable form based CSRF Protection for only /csrf-->
+		<csrf request-matcher-ref="csrfLimiter"/>
+		<!-- <intercept-url pattern="/welcome*" access="ROLE_USER" /> -->
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="demo" password="demo" authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean id="csrfLimiter" class="org.springframework.security.web.util.AntPathRequestMatcher">
+		<beans:constructor-arg value="/csrf*/**"/>
+	</beans:bean>
+
+</beans:beans>

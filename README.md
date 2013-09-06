@@ -1,7 +1,7 @@
 Spring MVC Showcase
 -------------------
-Demonstrates the capabilities of the Spring MVC web framework through small, simple examples.
-After reviewing this showcase, you should have a good understanding of what Spring MVC can do and get a feel for how easy it is to use.
+Demonstrates the capabilities of the Spring MVC web and security frameworks through small, simple examples.
+After reviewing this showcase, you should have a good understanding of what Spring MVC and Spring Security can do and get a feel for how easy it is to use.
 Includes project code along with a supporting slideshow and screen cast.
 
 In this showcase you'll see the following in action:
@@ -22,7 +22,7 @@ To get the code:
 -------------------
 Clone the repository:
 
-    $ git clone git://github.com/SpringSource/spring-mvc-showcase.git
+    $ git clone git://github.com/vetsin/spring-mvc-showcase.git
 
 If this is your first time using Github, review http://help.github.com to learn the basics.
 
@@ -44,7 +44,7 @@ Access the deployed web application at: http://localhost:8080/spring-mvc-showcas
 
 Other info:
 -------------------
-Framework version illustrated: Spring MVC 3.1
+Framework version illustrated: Spring MVC 4.0.0.BUILD-SNAPSHOT and Spring Security 3.2.0.RC1
 
 The slide presentation is located in this directory and named MasteringSpringMVC3.pdf.
 
