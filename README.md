@@ -17,6 +17,8 @@ In this showcase you'll see the following in action:
 * Forms
 * File Upload
 * Exception Handling
+* CSRF Protection
+* HTTP Interceptors
 
 To get the code:
 -------------------

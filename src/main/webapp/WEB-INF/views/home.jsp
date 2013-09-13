@@ -20,6 +20,7 @@
 		<li><a href="#convert">Type Conversion</a></li>
 		<li><a href="#validation">Validation</a></li>
 		<li><a href="<c:url value="/form" />" title="forms">Forms</a></li>
+		<li><a href="<c:url value="/form/assignment" />" title="forms/assignment">Mass Assignment</a></li>
 		<li><a href="<c:url value="/fileupload" />" title="fileupload">File Upload</a></li>
 		<li><a href="#exceptions">Exception Handling</a></li>
 		<li><a href="#redirect">Redirecting</a></li>
@@ -361,6 +362,12 @@
 			</li>
 			<li>
 				<a id="validateErrors" class="textLink" href="<c:url value="/validate?number=3&date=2010-07-01" />">Validate, errors</a>
+			</li>
+			<li>
+				<a id="validateCustomNoErrors" class="textLink" href="<c:url value="/validate/custom?input=tacocat" />">Custom Validator, no errors</a>
+			</li>
+			<li>
+				<a id="validateCustomErrors" class="textLink" href="<c:url value="/validate/custom?input=springsource" />">Custom Validator, errors</a>
 			</li>
 		</ul>	
 	</div>
