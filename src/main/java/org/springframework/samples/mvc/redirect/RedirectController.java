@@ -38,6 +38,18 @@ public class RedirectController {
 				.build().expand("a123").encode();
 		return "redirect:" + redirectUri.toUriString();
 	}
+	
+	/* Insecure Method */
+	@RequestMapping(value="/openRedirect", method=RequestMethod.GET)
+	public String openRedirect(@RequestParam String target) {
+		return "redirect:" + target;
+	}
+	
+	/* Secure Method */
+	@RequestMapping(value="/redirect", method=RequestMethod.GET)
+	public String closedRedirect(@RequestParam String target, UriComponentsBuilder b) {
+		return "redirect:" + b.path("/{target}").buildAndExpand(target);
+	}
 
 	@RequestMapping(value="/{account}", method=RequestMethod.GET)
 	public String show(@PathVariable String account, @RequestParam(required=false) LocalDate date) {

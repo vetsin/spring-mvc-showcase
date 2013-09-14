@@ -397,6 +397,12 @@
 			<li>
 				<a href="<c:url value="/redirect/uriComponentsBuilder" />">UriComponentsBuilder</a>
 			</li>
+			<li>
+				<a href="<c:url value="/redirect/openRedirect?target=http://www.duckduckgo.com" />">Redirect to external application</a>
+			</li>
+			<li>
+				<a href="<c:url value="/redirect/redirect?target=http://www.duckduckgo.com" />">Secure Redirect</a>
+			</li>
 		</ul>
 	</div>
 	<div id="async">
